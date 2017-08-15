@@ -1,8 +1,21 @@
-function OnRun($rootScope, AppSettings) {
+function OnRun($rootScope, AuthService, $location, AppSettings) {
   'ngInject';
 
+  $rootScope.$on('$locationChangeStart', () => {
+      let publicPages = ['/login'];
+      let restrictedPage = publicPages.indexOf($location.path()) === -1;
+      if (restrictedPage && !AuthService.isLoggedIn()) {
+          $location.path('/login');
+      }
+
+      setTimeout(function(){
+        $location.path('/login');
+        SessionService.destroy();
+      }, 86400000);
+  });
+
   // change page title based on state
-  $rootScope.$on('$stateChangeSuccess', (event, toState) => {
+  $rootScope.$on('$locationChangeStart', (event, toState) => {
     $rootScope.pageTitle = '';
 
     if (toState.title) {
@@ -10,9 +23,9 @@ function OnRun($rootScope, AppSettings) {
       $rootScope.pageTitle += ' \u2014 ';
     }
 
-    $rootScope.pageTitle += AppSettings.appTitle;
+    $rootScope.pageTitle += AppSettings.appTitle + ' - ' + AppSettings.subTitle;
   });
 
 }
 
-export default OnRun;
+  export default OnRun;

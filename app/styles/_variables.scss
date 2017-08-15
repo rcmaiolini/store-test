@@ -1,0 +1,81 @@
+// Font-Size Map
+$font-xxx-small: rem(10);
+$font-xx-small: rem(12);
+$font-x-small: rem(14);
+$font-small: rem(16);
+$font-medium: rem(18);
+$font-large: rem(20);
+$font-x-large: rem(22);
+$font-xx-large: rem(24);
+$font-xxx-large: rem(26);
+
+$font-sizes: (
+  xxxsmall: $font-xxx-small,
+  xxsmall: $font-xx-small,
+  xsmall: $font-x-small,
+  small: $font-small,
+  medium: $font-medium,
+  large: $font-large,
+  xlarge: $font-x-large,
+  xxlarge: $font-xx-large,
+  xxxlarge: $font-xxx-large
+);
+
+// Map Colors
+$primary-color: #3d5a80;
+$color-shade-amount: 15%;
+$color-trans-amount: .5;
+$warning-shade-amount: 70%;
+
+$black:  #000;
+$white:  #fff;
+$red:    #f00;
+$yellow: #ff0;
+$green:  #008000;
+$blue:   #00f;
+
+$colors: (
+  primary: (
+    base: $primary-color,
+    light: lighten($primary-color, $color-shade-amount),
+    dark: darken($primary-color, $color-shade-amount),
+    trans: transparentize($primary-color, $color-trans-amount),
+  ),
+  success: (
+    text: shade($green, $warning-shade-amount),
+    background: tint($green, $warning-shade-amount),
+    border: $green
+  ),
+  danger: (
+    text: shade($red, $warning-shade-amount),
+    background: tint($red, $warning-shade-amount),
+    border: $red
+  ),
+  warning: (
+    text: shade($yellow, $warning-shade-amount),
+    background: tint($yellow, $warning-shade-amount),
+    border: $yellow
+  ),
+  info: (
+    text: shade($blue, $warning-shade-amount),
+    background: tint($blue, $warning-shade-amount),
+    border: $blue
+  )
+);
+
+// Font Colors
+$base-font-color: lighten($black, $color-shade-amount);
+
+// Base Colors
+$primary-base-color: color(primary, base);
+
+// Background Colors
+$body-background-color: #f7f0f0;
+
+
+//Menu
+$menu-background-color: #f7f7f9;
+$menu-box-shadow: 0 0 1px rgba($black, .1);
+
+//Card
+$card-box-shadow: 0 1px 3px rgba($black, .3);

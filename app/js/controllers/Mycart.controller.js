@@ -1,16 +1,16 @@
-function ProductsController(ngCart) {
+function MycartController(ngCart) {
   'ngInject';
 
   // ViewModel
   const vm = this;
 
-  vm.title = 'Products';
+  vm.title = 'Mycart';
   ngCart.setTaxRate(7.5);
   ngCart.setShipping(2.99);
 
 }
 
 export default {
-  name: 'ProductsController',
-  fn: ProductsController
+  name: 'MycartController',
+  fn: MycartController
 };

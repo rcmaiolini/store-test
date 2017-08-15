@@ -1,0 +1,47 @@
+$base-font-size: 16; // Default
+
+//Convert px to em
+@function em($pixels, $context: $base-font-size) {
+  @return #{$pixels / $context}em;
+}
+
+//Convert px to rem
+@function rem($pixels, $context: $base-font-size) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+
+  @return $pixels / $context * 1rem;
+}
+
+// Função retorna o tamanho especificada no map $font-size
+@function size($value) {
+  @if map-has-key($font-sizes, $value) {
+    @return map-get($font-sizes, $value);
+  } @else {
+    @error "A chave `#{$value}` não existe. Verifique se ela foi definida no mapa `$font-sizes`!";
+  }
+}
+
+//Função retorna valores passados no map de $colors
+@function color($color-name, $color-variant:null) {
+  @if ($color-variant != null) {
+    @return map-get(map-get($colors, $color-name), $color-variant);
+  } @else {
+    @return map-get($colors, $color-name);
+  }
+}
+
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+
+  @return $string;
+}

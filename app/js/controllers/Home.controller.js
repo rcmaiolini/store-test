@@ -1,10 +1,15 @@
-function HomeController() {
+function HomeController(AuthService, SessionService, $location, AppSettings) {
   'ngInject';
 
-  // ViewModel
   const vm = this;
 
-  vm.title = 'Ibuy Store';
+  vm.title = AppSettings.appTitle;
+  vm.username = SessionService.getUser();
+
+  vm.logout = function(){
+    SessionService.destroy();
+    $location.path('/login');
+  }
 
 }
 

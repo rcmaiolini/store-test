@@ -1,6 +1,7 @@
 const AppSettings = {
-  appTitle: 'Ibuy Store'
-  //apiUrl: '/api/v1'
+  appTitle: 'IBUY',
+  subTitle: 'Beer Store',
+  loginUrl: '/api/authenticate/'
 };
 
 export default AppSettings;
