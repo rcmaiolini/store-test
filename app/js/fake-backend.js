@@ -3,7 +3,7 @@ function setupFakeBackend($httpBackend) {
     'ngInject';
 
     var testUser = { username: 'ricardomaiolini', password: '1234', firstName: 'Ricardo', lastName: 'Maiolini' };
-    var privateKey = 'BbZJjyoXAdr8BUZuiKKARWimKfrSmQ6fv8kZ7OFfc';
+    var privateKey = '2461ffcfbdbc918a9d1a37ed7ece4f6c';
 
     // fake authenticate api end point
     $httpBackend.whenPOST('/api/authenticate').respond(function (method, url, data) {

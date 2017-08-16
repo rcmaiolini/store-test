@@ -15,17 +15,23 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider, $httpPr
     templateUrl: 'home.html',
     controller: 'HomeController as vm'
   })
-  .state('home.products', {
-    url: 'products',
-    templateUrl: 'pages/products.html',
-    controller: 'ProductsController as vm',
-    title: 'Produtos'
+  .state('home.beers', {
+    url: 'beers',
+    templateUrl: 'pages/beers.html',
+    controller: 'BeersController as vm',
+    title: 'Discover Beers'
   })
   .state('home.mycart', {
     url: 'my-cart',
     templateUrl: 'pages/my-cart.html',
     controller: 'MycartController as vm',
-    title: 'My Cart'
+    title: 'Meu Carrinho'
+  })
+  .state('home.checkout', {
+    url: 'checkout',
+    templateUrl: 'pages/checkout.html',
+    controller: 'CheckoutController as vm',
+    title: 'Finalizar Pedido'
   })
   .state('login', {
     url: '/login',

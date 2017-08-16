@@ -36,8 +36,12 @@
   },
   "devDependencies": {
     "angular": "^1.6.5",
+    "angular-animate": "^1.6.5",
     "angular-mocks": "^1.5.3",
     "angular-resource": "^1.6.5",
+    "angular-sanitize": "^1.6.5",
+    "angular-touch": "^1.6.5",
+    "angular-ui-bootstrap": "^2.5.0",
     "angular-ui-router": "^1.0.3",
     "babel-core": "^6.3.26",
     "babel-eslint": "^7.0.0",

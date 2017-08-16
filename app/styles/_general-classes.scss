@@ -3,83 +3,17 @@
   padding-right: 0;
 }
 
-.table {
-  margin: 10px 0;
-
-  > thead > tr > th,
-  > tbody > tr > th,
-  > tfoot > tr > th,
-  > thead > tr > td,
-  > tbody > tr > td,
-  > tfoot > tr > td {
-    padding: 4px;
-    vertical-align: middle;
-  }
+body {
+    background-color: #fff;
+    color: #243238;
+    font-family: "PT Sans",sans-serif;
+    font-size: 13px;
+    line-height: 16px;
+    margin: 0;
+    min-width: 320px;
+    width: 100%;
 }
 
-.navbar {
-  border-radius: 0;
-  padding: 0 0 0 20px;
-}
-
-button:active {
-  outline: none !important;
-  border: none !important;
-}
-
-button:focus {outline:0 !important;}
-
-.customButtom {
-  width: 100px;
-}
-
-.input-group-btn {
-  padding-top: 25px;
-}
-
-.form-group {
-  margin-top: 9px;
-}
-
-.form-control {
-  padding: 6px;
-}
-
-.messages {
-  padding: 5px 10px;
-  border-radius: 4px;
-}
-
-.pagination {
-  margin: 0;
-}
-
-.tooltip {
-  font-size: 14px;
-
-  .tooltip-inner {
-    border-radius: 4px;
-    box-shadow: 0 0 5px #fff;
-  }
-}
-
-.list-group {
-  margin: 0;
-
-  li {
-    list-style: none;
-    word-wrap: break-word;
-
-    &:last-child {
-      min-height: 42px;
-    }
-  }
-}
-
-.noPaddingRight {
-  padding-right: 0 !important;
-}
-
-.noPaddingLeft {
-  padding-left: 0 !important;
+body, html {
+    height: 100%;
 }

@@ -15,6 +15,10 @@ import 'ngstorage';
 import 'angular-mocks';
 import 'angular-resource';
 import '../../node_modules/ngCart/dist/ngCart.js';
+import 'angular-ui-bootstrap';
+import 'angular-animate';
+import 'angular-sanitize';
+import 'angular-touch';
 
 import './templates';
 import './filters';
@@ -29,6 +33,10 @@ const requires = [
   'ngMockE2E',
   'ngResource',
   'ngCart',
+  'ui.bootstrap',
+  'ngAnimate',
+  'ngSanitize',
+  'ngTouch',
   'templates',
   'templates',
   'app.filters',

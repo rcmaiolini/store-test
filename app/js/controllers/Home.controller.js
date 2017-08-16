@@ -4,6 +4,7 @@ function HomeController(AuthService, SessionService, $location, AppSettings) {
   const vm = this;
 
   vm.title = AppSettings.appTitle;
+  vm.subTitle = AppSettings.subTitle;
   vm.username = SessionService.getUser();
 
   vm.logout = function(){

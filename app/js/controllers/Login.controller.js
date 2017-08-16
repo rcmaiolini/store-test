@@ -16,7 +16,7 @@ function LoginController(AuthService, $location, SessionService, AppSettings) {
         if(response.token){
           SessionService.setUser(response.username);
           SessionService.setAccessToken(response.token);
-          $location.path('/products');
+          $location.path('/beers');
         } else {
           vm.error = vm.errorUserPass;
           vm.dataLoading = false;

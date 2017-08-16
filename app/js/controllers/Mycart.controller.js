@@ -1,12 +1,10 @@
-function MycartController(ngCart) {
+function MycartController() {
   'ngInject';
 
   // ViewModel
   const vm = this;
 
-  vm.title = 'Mycart';
-  ngCart.setTaxRate(7.5);
-  ngCart.setShipping(2.99);
+  vm.title = 'My Cart';
 
 }
 
