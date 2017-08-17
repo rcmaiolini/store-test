@@ -3,10 +3,10 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider, $httpPr
 
   $httpProvider.interceptors.push('ResponseInterceptor');
 
-  // $locationProvider.html5Mode({
-  //   enabled: true,
-  //   requireBase: false
-  // });
+  $locationProvider.html5Mode({
+    enabled: true,
+    requireBase: false
+  });
 
   $stateProvider
   .state('home', {
