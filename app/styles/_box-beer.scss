@@ -1,8 +1,8 @@
 .box-beer {
   min-height: 250px;
-  background-color: #fff;
-  box-shadow: 0 0 1px #ccc;
-  border: 1px solid #ccc;
+  background-color: $white;
+  box-shadow: 0 0 1px $gray-light;
+  border: 1px solid $gray-light;
 
   .box-img {
     float: left;

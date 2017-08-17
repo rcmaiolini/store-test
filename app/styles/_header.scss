@@ -37,7 +37,7 @@ header {
       left: 0;
       width: 100%;
       height: 1px;
-      background: #ebca7a;
+      background: $yellow;
       z-index: 0;
     }
 }
@@ -55,12 +55,12 @@ header {
 
   p {
     margin-top: 10px;
-    color: #fff;
+    color: $white;
     font-weight: bold;
     font-size: 14px;
 
     span {
-      color: #ebca7a;
+      color: $yellow;
       font-weight: bold;
     }
   }
@@ -82,7 +82,7 @@ header {
 
     &.user {
       display: inline-block;
-      border-left: 1px solid #ebca7a;
+      border-left: 1px solid $yellow;
       padding-left: 30px;
     }
   }
