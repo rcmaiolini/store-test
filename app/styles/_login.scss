@@ -1,0 +1,15 @@
+.login {
+  @include align;
+
+  background-color: #f1f1f1;
+  padding: 30px 60px;
+  width: 400px;
+  border-left: 10px solid #ebca7a;
+  border-right: 10px solid #ebca7a;
+
+  h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+}

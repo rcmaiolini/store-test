@@ -4,9 +4,8 @@
 }
 
 body {
-    background-color: #fff;
-    color: #243238;
-    font-family: "PT Sans",sans-serif;
+    background-color: #f1f1f1;
+    font-family: serif;
     font-size: 13px;
     line-height: 16px;
     margin: 0;
@@ -16,4 +15,71 @@ body {
 
 body, html {
     height: 100%;
+}
+
+.title {
+  text-shadow: 1px 0px 0px #000,
+               -1px 0px 0px #000,
+               0px 1px 0px #000,
+               0px -1px 0px #000;
+  font-weight: bold;
+  color: #ebca7a;
+}
+
+.messages {
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.txt-menu {
+  color: #ebca7a;
+
+  &:hover, &:active, &:focus {
+    color: #fff;
+  }
+}
+
+.dropdown-menu {
+  li {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+}
+
+.form-control:focus {
+  border-color: #ebca7a;
+  outline: 0;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(235, 202, 122, 0.6);
+}
+
+.btn-primary {
+  color: #333;
+  background-color: #ebca7a;
+  border-color: #e0c074;
+
+  &[disabled]:hover, &[disabled]:active, &[disabled]:focus {
+    color: #333;
+    background-color: #ebca7a;
+    border-color: #e0c074;
+  }
+
+  &:hover, &:active, &:focus, &:active:focus, &:active:hover {
+    color: #333;
+    background-color: #d1b26c;
+    border-color: #ceb26f;
+    outline: none;
+  }
+}
+
+.empty-cart {
+  text-decoration: none !important;
+  font-weight: normal;
+  border-left: 1px solid #ebca7a;
+  margin-left: 10px;
+  padding-left: 10px;
+}
+
+span[ng-click] {
+  cursor: pointer;
 }

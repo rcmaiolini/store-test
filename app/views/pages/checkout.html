@@ -1,18 +1,64 @@
-<h2>Finalizar Pedido</h2>
-<div class="row">
-    <div class="col-xs-4">
-        <h4>service 'log'</h4>
-        <ngcart-checkout service="log">Checkout</ngcart-checkout>
-    </div>
-    <div class="col-xs-4">
-        <h4>service 'http'</h4>
-        <ngcart-checkout service="http" settings="httpSettings">Checkout </ngcart-checkout>
-    </div>
-    <div class="col-xs-4">
-        <h4>service 'paypal'</h4>
-        <ngcart-checkout service="paypal" settings="payPalSettings"></ngcart-checkout>
-    </div>
-</div>
+<h1 class="title">{{vm.title}}</h1>
+
+<ngcart-cart></ngcart-cart>
+<script type="text/ng-template" id="template/ngCart/cart.html">
+  <div class="alert alert-warning" role="alert" ng-show="ngCart.getTotalItems() === 0">
+      Your cart is empty
+  </div>
+
+  <div class="table-responsive col-lg-12" ng-show="ngCart.getTotalItems() > 0">
+    <table class="table table-striped ngCart cart">
+      <thead>
+        <tr>
+            <td></td>
+            <th>Quantity</th>
+            <th>Amount</th>
+            <th>Total</th>
+        </tr>
+        </thead>
+        <tfoot>
+        <tr ng-show="ngCart.getTax()">
+            <td></td>
+            <td></td>
+            <td>Tax ({{ ngCart.getTaxRate() }}%):</td>
+            <td>{{ ngCart.getTax() | currency }}</td>
+        </tr>
+        <tr ng-show="ngCart.getShipping()">
+            <td></td>
+            <td></td>
+            <td>Shipping:</td>
+            <td>{{ ngCart.getShipping() | currency }}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>Total:</td>
+            <td>{{ ngCart.totalCost() | currency }}</td>
+        </tr>
+        </tfoot>
+        <tbody>
+        <tr ng-repeat="item in ngCart.getCart().items track by $index">
+            <td>{{ item.getName() }}</td>
+            <td>
+                {{ item.getQuantity() | number }}&nbsp;&nbsp;
+              </td>
+            <td>{{ item.getPrice() | currency}}</td>
+            <td>{{ item.getTotal() | currency }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <a href="#" ui-sref="home.mycart" class="btn btn-md btn-primary pull-left">Back to Cart</a>
+  <div class="pull-right" style="text-align: center">
+    <ngcart-checkout service="log">Pay Now</ngcart-checkout>
+    <p>or</p>
+    <h4>Pay with Paypal</h4>
+    <ngcart-checkout service="paypal" settings="payPalSettings"></ngcart-checkout>
+  </div>
+
+
+</script>
 
 <script type="text/ng-template" id="template/ngCart/checkout.html">
     <div ng-if="service=='http' || service == 'log'">

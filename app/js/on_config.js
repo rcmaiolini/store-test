@@ -3,10 +3,10 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider, $httpPr
 
   $httpProvider.interceptors.push('ResponseInterceptor');
 
-  $locationProvider.html5Mode({
-    enabled: true,
-    requireBase: false
-  });
+  // $locationProvider.html5Mode({
+  //   enabled: true,
+  //   requireBase: false
+  // });
 
   $stateProvider
   .state('home', {
@@ -20,6 +20,12 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider, $httpPr
     templateUrl: 'pages/beers.html',
     controller: 'BeersController as vm',
     title: 'Discover Beers'
+  })
+  .state('home.beerdetails', {
+    url: 'beer-details/:id',
+    templateUrl: 'pages/beer-details.html',
+    controller: 'BeerdetailsController as vm',
+    title: 'Beer Details'
   })
   .state('home.mycart', {
     url: 'my-cart',

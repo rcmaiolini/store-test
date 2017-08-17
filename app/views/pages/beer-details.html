@@ -1,0 +1,53 @@
+<h1 class="title">{{vm.title}}</h1>
+
+<div class="beer-details col-md-9">
+  <img class="img-responsive" src="{{vm.beerDetails.labels.medium}}" alt="{{beer.name}}">
+  <h2 class="title">{{vm.beerDetails.name}}</h2>
+  <h3>{{vm.brewery}}</h3>
+  <p>{{vm.beerDetails.style.description}}</p>
+  <table class="col-md-8 details">
+    <thead>
+      <tr>
+        <th>IBU</th>
+        <th>ABV</th>
+        <th>Style</th>
+        <th>Glass</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{vm.beerDetails.style.ibuMax}}</td>
+        <td>{{vm.beerDetails.style.abvMax}}</td>
+        <td>{{vm.beerDetails.style.name}}</td>
+        <td>{{vm.beerDetails.glass.name}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="beer-buy col-md-3">
+  <p>Product Price: </p>
+  <h3>${{vm.price}}</h3>
+  <ngcart-addtocart id="{{vm.beerDetails.id}}" name="{{vm.beerDetails.name}}" price="{{vm.price}}" quantity="1" quantity-max="10">Add to Cart</ngcart-addtocart>
+</div>
+
+<script type="text/ng-template" id="template/ngCart/addtocart.html">
+    <div ng-hide="attrs.id">
+        <a class="btn btn-lg btn-primary btn-block" ng-disabled="true" ng-transclude></a>
+    </div>
+    <div class="box-actions" ng-show="attrs.id">
+        <div>
+            <span class="details-quantity" ng-show="quantityMax">
+                <select class="form-control" name="quantity" id="quantity" ng-model="q"
+                        ng-options="v for v in qtyOpt"></select>
+            </span>
+            <a class="btn btn-md btn-primary btn-block"
+               ng-click="ngCart.addItem(id, name, price, q, data)"
+               ng-transclude></a>
+        </div>
+        <mark class="details-mark" ng-show="inCart()">
+            This item is in your cart. <a ng-click="ngCart.removeItemById(id)" style="cursor: pointer;">Remove</a>
+        </mark>
+    </div>
+    <a class="btn btn-block btn-primary" ng-show="ngCart.totalCost()" ui-sref="home.mycart">My Cart</a>
+</script>

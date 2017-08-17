@@ -1,4 +1,4 @@
-<h2>{{vm.title}}</h2>
+<h1 class="title">{{vm.title}}</h1>
 
 <ngcart-cart></ngcart-cart>
 <script type="text/ng-template" id="template/ngCart/cart.html">
@@ -55,5 +55,8 @@
       </tbody>
     </table>
   </div>
+
+  <a href="#" ui-sref="home.checkout" ng-show="ngCart.totalCost()" class="btn btn-md btn-primary pull-right">Checkout</a>
+  <a href="#" ui-sref="home.beers" ng-show="!ngCart.totalCost()" class="btn btn-md btn-primary pull-right">Back to Beers</a>
 
 </script>

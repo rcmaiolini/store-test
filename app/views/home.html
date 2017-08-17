@@ -1,47 +1,56 @@
 <header>
-  <div class="container">
-    <div id="logo" class="logo col-md-3">
+  <div class="container-fluid">
+    <div id="logo" class="logo col-md-3 bg-primary">
 			<a ui-sref="home.beers">{{vm.title}} <span>{{vm.subTitle}}</span></a>
 		</div>
 
-		<div class="header-content col-md-9">
+		<div class="container">
+			<div class="header-content col-md-12">
 
-			<div class="header-row1 col-md-12">
-				<ul class="menu">
-					<li><a ui-sref="home.beers">Discover Beers</a></li>
-					<li class="wishlist"><a href="#">My Wishlist</a></li>
-					<li class="checkout"><a ui-sref="home.mycart">My Cart</a></li>
-					<li class="user dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              {{vm.username}}
-              <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu">
-              <li><a href="#" ng-click="vm.logout()">Sair</a></li>
-            </ul>
-					</li>
-				</ul>
-			</div>
-
-			<div class="header-row2 col-md-12">
-				<div class="col-md-8">
-					<input type="text" class="form-control" placeholder="Search for beers" ng-model="filterBeers" />
+				<div class="header-row1 col-md-12">
+					<ul class="menu">
+						<li><a class="txt-menu" ui-sref="home.beers" ui-sref-active="active">Discover Beers</a></li>
+						<li><a class="txt-menu" href="#" ui-sref-active="active">My Wishlist</a></li>
+						<li><a class="txt-menu" ui-sref="home.mycart" ui-sref-active="active">My Cart</a></li>
+						<li class="user dropdown">
+							<a href="#" class="dropdown-toggle txt-menu" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+	              {{vm.username}}
+	              <span class="caret"></span>
+	            </a>
+	            <ul class="dropdown-menu">
+								<li><a href="#">My Account</a></li>
+								<li role="separator" class="divider"></li>
+	              <li><a href="#" ng-click="vm.logout()">Sair</a></li>
+	            </ul>
+						</li>
+					</ul>
 				</div>
 
-				<ngcart-summary></ngcart-summary>
-			  <script type="text/ng-template" id="template/ngCart/summary.html">
-					<div class="col-md-4">
-						<p>
-				      <span>{{ ngCart.getTotalItems() }}</span>
-				      <ng-pluralize count="ngCart.getTotalItems()" when="{1: 'item', 'other':'items'}"></ng-pluralize>
-							Selected -
-				      <span>{{ ngCart.totalCost() | currency }}</span>
-							in total
-						</p>
+				<div class="header-row2 col-md-12">
+					<div class="col-md-8">
+						<input type="text" class="form-control" placeholder="Search for beers" ng-show="vm.currentPath() === 'beers'" ng-model="filterBeers" />
 					</div>
-			  </script>
-			</div>
 
+					<ngcart-summary></ngcart-summary>
+				  <script type="text/ng-template" id="template/ngCart/summary.html">
+						<div class="col-md-4">
+							<p>
+					      <span>{{ ngCart.getTotalItems() }}</span>
+					      <ng-pluralize count="ngCart.getTotalItems()" when="{1: 'item', 'other':'items'}"></ng-pluralize>
+								Selected -
+					      <span>{{ ngCart.totalCost() | currency }}</span>
+								in total
+								<span class="glyphicon glyphicon-shopping-cart"></span>
+								<a href="#" class="empty-cart txt-menu" ng-click="ngCart.empty()">
+									Empty Cart
+									<span class="glyphicon glyphicon-trash"></span>
+								</a>
+							</p>
+						</div>
+				  </script>
+				</div>
+
+			</div>
 		</div>
 	</div>
 </header>

@@ -1,0 +1,38 @@
+.box-beer {
+  min-height: 250px;
+  background-color: #fff;
+  box-shadow: 0 0 1px #ccc;
+  border: 1px solid #ccc;
+
+  .box-img {
+    float: left;
+    margin-right: 10px;
+  }
+
+  .box-info {
+    min-height: 80px;
+  }
+
+  .box-actions {
+    margin-top: 10px;
+  }
+
+  .box-mark {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .form-control {
+    width: 50%;
+    display: inline-block;
+  }
+
+  p {
+    margin: 0;
+
+    span {
+      font-weight: bold;
+    }
+  }
+}

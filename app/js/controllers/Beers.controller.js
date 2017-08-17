@@ -1,11 +1,11 @@
-function BeersController(ngCart, BeersService) {
+function BeersController(ngCart, BeersService, $location) {
   'ngInject';
 
   // ViewModel
   const vm = this;
 
   vm.currentPage = 1;
-  vm.numPerPage = 10;
+  vm.numPerPage = 12;
   vm.maxSize = 5;
 
   vm.title = 'Discover Beers';
@@ -39,13 +39,19 @@ function BeersController(ngCart, BeersService) {
   ];
 
   vm.getBeers = () => {
-    BeersService.api().query({}, (data) => {
+    BeersService.beers().query({}, (data) => {
       data = [data.data];
       vm.beers = data[0];
       //console.log(vm.beers)
     });
   }
   vm.getBeers();
+
+  vm.getBeer = (beerId, price, brewery) => {
+    $location.path('beer-details/' + beerId)
+    localStorage.setItem('price', price);
+    localStorage.setItem('brewery', brewery);
+  };
 
   ngCart.setTaxRate(7.5);
   ngCart.setShipping(2.99);

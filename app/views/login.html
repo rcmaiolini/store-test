@@ -1,10 +1,10 @@
+<div id="logo" class="logo">
+  <a ui-sref="home.beers">{{vm.appTitle}} <span>{{vm.subTitle}}</span></a>
+</div>
+
 <div class="container login">
-  <h1>
-    {{vm.appTitle}}
-    <span>{{vm.subTitle}}</span>
-  </h1>
   <div class="login-form">
-      <h2>{{vm.title}}</h2>
+      <h1 class="title">{{vm.title}}</h1>
       <form name="form" ng-submit="vm.login()" role="form">
           <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
             <label for="username">Usuário</label>
@@ -20,7 +20,7 @@
             <p ng-if="vm.error" class="bg-danger text-danger messages">{{vm.error}}</p>
           </div>
           <div class="form-actions">
-            <button type="submit" ng-disabled="form.$invalid || dataLoading" class="btn btn-login btn-block">Login</button>
+            <button type="submit" ng-disabled="form.$invalid || dataLoading" class="btn btn-login btn-primary btn-block">Login</button>
             <!-- <img ng-if="dataLoading" src="./loading.svg" /> -->
             <svg ng-if="dataLoading" version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                width="30px" height="30px" viewbox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">

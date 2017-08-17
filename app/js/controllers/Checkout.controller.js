@@ -4,7 +4,7 @@ function CheckoutController() {
   // ViewModel
   const vm = this;
 
-  vm.title = 'Finalizar Pedido';
+  vm.title = 'Checkout';
 
 }
 

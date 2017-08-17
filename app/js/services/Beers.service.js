@@ -2,17 +2,29 @@ function BeersService(SessionService, AppSettings, $resource) {
   'ngInject';
 
   const service = {};
+  const key = '2461ffcfbdbc918a9d1a37ed7ece4f6c';
 
-  service.isLoggedIn = function() {
-    return SessionService.getUser() !== null;
-  };
-
-  service.api = () => {
-    let resource = $resource(AppSettings.beersUrl + '/beers?hasLabels=y&withBreweries=y&order=availableId&key=2461ffcfbdbc918a9d1a37ed7ece4f6c&format=json', {}, {
+  service.beers = () => {
+    let resource = $resource(AppSettings.beersUrl + '/beers?hasLabels=y&withBreweries=y&order=availableId&key=' + key + '&format=json', {}, {
       query: {
         isArray: false,
         method: 'GET',
-        params: {}
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }
+    });
+    return resource;
+  }
+
+  service.beer = () => {
+    let resource = $resource(AppSettings.beersUrl + '/beer/:id?key=' + key + '&format=json', {id: '@id'}, {
+      get: {
+        isArray: false,
+        method: 'GET',
+        params: {
+          id: '@id'
+        }
       }
     });
     return resource;
