@@ -12,7 +12,7 @@
     <ngcart-addtocart id="{{beer.id}}" name="{{beer.name}}" price="{{vm.prices[$index].price}}" quantity="1" quantity-max="10">Add to Cart</ngcart-addtocart>
 </div>
 
-<div class="text-center" ng-show="filteredBeer.length > vm.numPerPage">
+<div class="text-center pag" ng-show="filteredBeer.length > vm.numPerPage">
   <ul uib-pagination
       class="pagination-md"
       ng-model="vm.currentPage"
